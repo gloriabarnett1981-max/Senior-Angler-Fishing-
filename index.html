@@ -1,0 +1,629 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Angler | Fishing Blog for the Golden Years</title>
+    <meta name="description" content="A fishing blog dedicated to senior anglers in the USA. Enjoy quiet lake days, simple gear guides, and peaceful stories from the water.">
+    <style>
+        /* Base styles optimized for senior readability */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 20px; /* Larger base font */
+            line-height: 1.7;
+            color: #1a2a3a;
+            background-color: #f8f6f2;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+            color: #0b2b40;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+
+        a {
+            color: #1a5e8a;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: #0b2b40;
+            color: white;
+            padding: 20px 0;
+            border-bottom: 4px solid #d4a373;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f8f6f2;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #d4a373;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            color: #f8f6f2;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .main-nav a:hover {
+            border-bottom-color: #d4a373;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=2070&auto=format&fit=crop'); /* Real fishing/water image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 30, 50, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 40px 24px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #d4a373;
+            color: #0b2b40;
+            font-weight: 700;
+            font-size: 1.4rem;
+            padding: 18px 48px;
+            border-radius: 50px;
+            transition: background-color 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0b88a;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Featured Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background-color: #ffffff;
+        }
+
+        .section-title-center {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title-center h2 {
+            font-size: 2.5rem;
+            color: #0b2b40;
+        }
+
+        .section-title-center p {
+            font-size: 1.3rem;
+            color: #4a5b6b;
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 28px 24px 32px;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #0b2b40;
+        }
+
+        .card-content p {
+            font-size: 1.15rem;
+            color: #3a4b5b;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1a5e8a;
+            display: inline-block;
+            border-bottom: 2px solid #d4a373;
+            padding-bottom: 2px;
+        }
+
+        /* Human Image Section (Seniors) */
+        .senior-section {
+            background-color: #eef3f7;
+        }
+
+        .senior-img {
+            border-radius: 20px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .senior-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .senior-text p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #2a3b4b;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #0b2b40;
+            color: #cbd5e1;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 400px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #d4a373;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            color: #d4a373;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a4a6a;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        /* Page Content Sections (for Policy Pages embedded) */
+        .page-section {
+            display: none; /* Hidden by default, shown via JS */
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-content h2 {
+            margin-bottom: 30px;
+            border-bottom: 3px solid #d4a373;
+            padding-bottom: 15px;
+        }
+
+        .page-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0b2b40;
+        }
+
+        .page-content p, .page-content li {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: #2a3b4b;
+        }
+
+        .page-content ul {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            body { font-size: 18px; }
+            h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.3rem; }
+            .grid-2, .grid-3, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .main-nav ul { gap: 15px; }
+            .main-nav a { font-size: 1rem; }
+            .btn-primary { font-size: 1.2rem; padding: 14px 32px; }
+            .senior-img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="logo" onclick="showHome(); return false;">Senior<span>Angler</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" onclick="showHome(); return false;">Home</a></li>
+                    <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
+                    <li><a href="#" onclick="showPage('contact'); return false;">Contact Us</a></li>
+                    <li><a href="#" onclick="showPage('refund'); return false;">Refund Policy</a></li>
+                    <li><a href="#" onclick="showPage('terms'); return false;">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN HOMEPAGE CONTENT -->
+    <main id="home-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Fishing Isn’t Just for the Young</h1>
+                <p>Quiet mornings, good company, and the simple joy of the water. A blog for anglers who have earned their patience.</p>
+                <a href="#" class="btn-primary" onclick="alert('Welcome! Scroll down to read our latest stories. This is a static demo homepage.'); return false;">Start Reading</a>
+            </div>
+        </section>
+
+        <!-- Featured Articles Section -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="section-title-center">
+                    <h2>Stories & Advice for the Seasoned Angler</h2>
+                    <p>Practical tips, peaceful reflections, and gear that makes sense for a lifetime of fishing.</p>
+                </div>
+                <div class="grid-3">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop" alt="A senior man fishing peacefully from a boat" class="card-img">
+                        <div class="card-content">
+                            <h3>The Slow Down Method</h3>
+                            <p>Why the best catches often come when you stop rushing. A meditation on patience, taught by a lifetime on the water.</p>
+                            <a href="#" class="read-more" onclick="alert('Full article coming soon. This is a static homepage.'); return false;">Read Article →</a>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=2070&auto=format&fit=crop" alt="Fishing rod and reel resting by the water" class="card-img">
+                        <div class="card-content">
+                            <h3>Gear That Lasts a Lifetime</h3>
+                            <p>You don’t need the newest gadget. Here are the simple, reliable tools that have served our readers for decades.</p>
+                            <a href="#" class="read-more" onclick="alert('Full article coming soon. This is a static homepage.'); return false;">Read Article →</a>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=2070&auto=format&fit=crop" alt="Calm lake at sunrise with fishing dock" class="card-img">
+                        <div class="card-content">
+                            <h3>Finding Quiet Lakes in the USA</h3>
+                            <p>Skip the crowded spots. A guide to peaceful public waters where you can hear the birds and the line hum.</p>
+                            <a href="#" class="read-more" onclick="alert('Full article coming soon. This is a static homepage.'); return false;">Read Article →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Human / Senior Focus Section -->
+        <section class="section senior-section">
+            <div class="container grid-2">
+                <div>
+                    <!-- Real human image: mature couple / senior outdoors -->
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="A smiling senior man enjoying the outdoors by the water" class="senior-img">
+                </div>
+                <div class="senior-text">
+                    <h2>You’re Never Too Old for the Perfect Cast</h2>
+                    <p>We believe the later years are for savoring the things that matter. At Senior Angler, we write for the fisherman who values a comfortable chair, a thermos of coffee, and the quiet thrill of a nibble on the line.</p>
+                    <p>Our community is built on respect for experience. Whether you’re fishing a farm pond in Ohio or a river in Montana, there’s a place for you here.</p>
+                    <a href="#" class="btn-primary" onclick="showPage('about'); return false;" style="margin-top: 10px; display: inline-block;">Meet Our Writers</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ABOUT US PAGE (Hidden by default) -->
+    <section id="page-about" class="page-section">
+        <div class="container page-content">
+            <h2>About Us</h2>
+            <p><strong>Senior Angler</strong> was created for the generation that grew up with a rod in hand and a worm on a hook. We are a small, independent blog based in the United States, dedicated to the unique joys and challenges of fishing in your retirement years.</p>
+            
+            <h3>Why We Exist</h3>
+            <p>Most fishing content online moves too fast—flashy boats, expensive sonar, and high-energy tournaments. We wanted a place where the pace matches the quiet rhythm of a senior’s fishing trip. Here, we talk about comfortable access, lightweight gear, and the sheer pleasure of a still morning on the water.</p>
+
+            <h3>Our Writers</h3>
+            <p>Our contributors are seasoned anglers, many of whom have been fishing for over 50 years. We are not professional tournament chasers; we are retirees, grandparents, and lifelong hobbyists who want to share what we’ve learned. Our advice is practical, tested over decades, and always focused on safety and enjoyment.</p>
+
+            <h3>Our Promise</h3>
+            <p>We do not sell fishing licenses, guide services, or physical products. We are an informational blog. If we recommend a product, it is because one of our writers has used it personally. Our goal is to build a trustworthy, calm corner of the internet for the senior fishing community.</p>
+            <p>Thank you for stopping by. We’re glad you’re here.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT US PAGE (Hidden by default) -->
+    <section id="page-contact" class="page-section">
+        <div class="container page-content">
+            <h2>Contact Us</h2>
+            <p>We love hearing from our readers. Whether you have a story to share, a question about a local lake, or just want to say hello, please reach out.</p>
+            
+            <h3>Email (Preferred)</h3>
+            <p>For general inquiries, story submissions, or feedback: <br><strong>contact@yourfishingblog.com</strong></p>
+            <p><em>(Note to site owner: Please replace this email with your actual contact email before publishing.)</em></p>
+
+            <h3>Mailing Address</h3>
+            <p>Senior Angler Blog<br>123 Peaceful Lane<br>Lakeview, USA 00000</p>
+
+            <h3>Response Time</h3>
+            <p>We are a small team of volunteers. We typically respond within 2-3 business days. We appreciate your patience.</p>
+
+            <h3>Important Note</h3>
+            <p>We are a blog, not a fishing guide service or a retail store. We cannot provide real-time fishing conditions, sell gear, or book trips. Please contact your local state wildlife agency for licensing and regulation questions.</p>
+        </div>
+    </section>
+
+    <!-- REFUND POLICY PAGE (Hidden by default) -->
+    <section id="page-refund" class="page-section">
+        <div class="container page-content">
+            <h2>Refund Policy</h2>
+            <p><strong>Last Updated: November 2026</strong></p>
+            
+            <h3>1. Digital Products & Donations</h3>
+            <p>At this time, Senior Angler does not sell any physical goods, e-books, or paid subscriptions. Our blog is entirely free to read. If you have made a voluntary donation through a link on this site, please note that donations are generally non-refundable as they support our hosting and writing costs.</p>
+
+            <h3>2. Third-Party Links</h3>
+            <p>Our website may contain links to third-party websites (such as Amazon or other retailers) where you can purchase fishing gear. We do not process those payments and have no control over those transactions. If you have an issue with a purchase from a third-party site, please contact that retailer directly for their refund policy.</p>
+
+            <h3>3. Advertising</h3>
+            <p>This website displays advertisements (such as Google AdSense) to keep the content free. We are not responsible for the products or services advertised. Any issues with advertised products must be resolved with the advertiser.</p>
+
+            <h3>4. Contact</h3>
+            <p>If you believe you have been charged in error by our site (which should not happen), please contact us immediately at contact@yourfishingblog.com and we will investigate.</p>
+        </div>
+    </section>
+
+    <!-- TERMS & CONDITIONS PAGE (Hidden by default) -->
+    <section id="page-terms" class="page-section">
+        <div class="container page-content">
+            <h2>Terms & Conditions</h2>
+            <p><strong>Last Updated: November 2026</strong></p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By accessing and using Senior Angler (the “Website”), you accept and agree to be bound by these Terms and Conditions. If you do not agree, please do not use the Website.</p>
+
+            <h3>2. Informational Purposes Only</h3>
+            <p>All content on this Website—including articles, tips, and gear recommendations—is for general informational purposes only. Fishing involves inherent risks. We are not professional guides or safety instructors. You are solely responsible for your own safety, compliance with local fishing laws, and the condition of your equipment.</p>
+
+            <h3>3. Intellectual Property</h3>
+            <p>The text, original graphics, and layout of this Website are owned by Senior Angler and protected by copyright. You may not republish or redistribute our original articles without written permission. Images used on this site are sourced from copyright-free platforms (like Unsplash) and are used under their respective licenses.</p>
+
+            <h3>4. Third-Party Links</h3>
+            <p>We may link to external websites. We do not endorse or assume responsibility for the content, privacy policies, or practices of any third-party sites.</p>
+
+            <h3>5. Limitation of Liability</h3>
+            <p>Senior Angler and its contributors shall not be liable for any injury, loss, or damage arising from the use of this Website or reliance on its content. Use the information here at your own risk.</p>
+
+            <h3>6. Changes to Terms</h3>
+            <p>We reserve the right to update these Terms at any time. Changes take effect immediately upon posting.</p>
+
+            <h3>7. Governing Law</h3>
+            <p>These Terms are governed by the laws of the United States and the state in which the owner resides.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo">Senior<span>Angler</span></span>
+                    <p>A quiet place on the internet for anglers who value patience, comfort, and the simple joy of fishing. Made in the USA.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#" onclick="showHome(); return false;">Home</a></li>
+                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showPage('contact'); return false;">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('refund'); return false;">Refund Policy</a></li>
+                        <li><a href="#" onclick="showPage('terms'); return false;">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Senior Angler. All rights reserved. | Designed for the golden years.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for Navigation -->
+    <script>
+        function showHome() {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show home
+            document.getElementById('home-content').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPage(pageId) {
+            // Hide home content
+            document.getElementById('home-content').style.display = 'none';
+            
+            // Hide all page sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested page
+            const page = document.getElementById('page-' + pageId);
+            if (page) {
+                page.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize: ensure home is shown first
+        document.addEventListener('DOMContentLoaded', () => {
+            showHome();
+        });
+    </script>
+</body>
+</html>
